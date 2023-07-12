@@ -1,0 +1,41 @@
+<template>
+    <lightning-record-edit-form object-api-name="BoatReview__c" onsubmit={handleSubmit} onsuccess={handleSuccess}>
+        <lightning-messages></lightning-messages>
+         <!-- <lightning-input-field field-name="Boat__c" 
+                                variant="label-hidden" value={recordId} required></lightning-input-field> -->
+        <lightning-layout multiple-rows vertical-align="start">
+            <lightning-layout-item size="8" padding="horizontal-small">
+                <div class="slds-form-element">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="record-name" >Review Subject</label>
+                        <div class="slds-form-element__control">
+                            <lightning-input-field field-name={nameField} 
+                                variant="label-hidden" required></lightning-input-field>
+                        </div>
+                    </div>
+
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="horizontal-small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="record-name">Rating</label>
+                    <div class="slds-form-element__control">
+                        <c-five-star-rating onratingchange={handleRatingChanged}></c-five-star-rating>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="horizontal-small">
+                <div class="slds-form-element">
+                    <!-- <label class="slds-form-element__label" for="record-name">Comment</label> -->
+                    <div class="slds-form-element__control">
+                        <lightning-input-field field-name={commentField} variant="label-hidden" required></lightning-input-field>
+                    </div>
+                </div>
+
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-align_absolute-center" style="margin-top: 5px">
+            <lightning-button type="submit" label="Submit" icon-name="utility:save"></lightning-button>
+        </div>
+    </lightning-record-edit-form>
+</template>
